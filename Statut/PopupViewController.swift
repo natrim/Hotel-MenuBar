@@ -9,25 +9,40 @@
 import Cocoa
 import WebKit
 
-class PopupViewController: NSViewController {
+class PopupViewController: NSViewController, WebFrameLoadDelegate {
 
     @IBOutlet weak var mainWebView: WebView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.loadWebView()
+        mainWebView.frameLoadDelegate = self
     }
     
     override func viewDidAppear() {
         
     }
     
-    
     func loadWebView() {
         // Do view setup here.
         mainWebView.mainFrame.stopLoading()
         mainWebView.mainFrame.load(URLRequest(url: URL(string: Settings.url )!))
     }
+    
+    func webView(_ sender: WebView!, didStartProvisionalLoadFor frame: WebFrame!) {
+        print(sender.mainFrameURL)
+        if (sender.mainFrameURL != Settings.url) {
+            NSWorkspace.shared().open(URL(string: sender.mainFrameURL)!)
+            sender.stopLoading(sender)
+        }
+    }
+    
+    @IBAction func openAdminUrl(_ sender: Any) {
+        NSWorkspace.shared().open(URL(string: Settings.url)!)
+        let appDelegate = NSApplication.shared().delegate as! AppDelegate
+        appDelegate.closePopover(self)
+    }
+
     
     @IBAction func killApp(_ sender: Any) {
         NSApplication.shared().terminate(self)
