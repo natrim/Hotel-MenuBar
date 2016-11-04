@@ -9,7 +9,7 @@
 import Foundation
 
 class Settings {
-    static var popupWidth: CGFloat = 400
-    static var popupHeight: CGFloat = 300
+    static var popupWidth: CGFloat = 500
+    static var popupHeight: CGFloat = 400
     static var url: String = "http://localhost:2000"
 }

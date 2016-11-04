@@ -15,23 +15,23 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     let popover = NSPopover()
     
-    let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(-2)
+    let statusItem = NSStatusBar.system().statusItem(withLength: -2)
     
     var eventMonitor: EventMonitor?
 
 
-    func applicationDidFinishLaunching(aNotification: NSNotification) {
+    func applicationDidFinishLaunching(_ aNotification: Notification) {
         if let button = statusItem.button {
             button.image = NSImage(named: "StatusBarButtonImage")
-            button.action = Selector("togglePopover:")
+            button.action = #selector(AppDelegate.togglePopover(_:))
         }
         
         popover.contentViewController = PopupViewController(nibName: "PopupViewController", bundle: nil)
         
         initialPopupSize()
         
-        eventMonitor = EventMonitor(mask: [.LeftMouseDownMask, .RightMouseDownMask]) { [unowned self] event in
-            if self.popover.shown {
+        eventMonitor = EventMonitor(mask: [.leftMouseDown, .rightMouseDown]) { [unowned self] event in
+            if self.popover.isShown {
                 self.closePopover(event)
             }
         }
@@ -43,24 +43,24 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         popover.contentSize.height = Settings.popupHeight
     }
 
-    func applicationWillTerminate(aNotification: NSNotification) {
+    func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
     
-    func showPopover(sender: AnyObject?){
+    func showPopover(_ sender: AnyObject?){
         if let button = statusItem.button {
-            popover.showRelativeToRect(button.bounds, ofView: button, preferredEdge: NSRectEdge.MinY)
+            popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
         }
         eventMonitor?.start()
     }
     
-    func closePopover(sender: AnyObject?){
+    func closePopover(_ sender: AnyObject?){
         popover.performClose(sender)
         eventMonitor?.stop()
     }
     
-    func togglePopover(sender: AnyObject?) {
-        if (popover.shown) {
+    func togglePopover(_ sender: AnyObject?) {
+        if (popover.isShown) {
             closePopover(sender)
         } else {
             showPopover(sender)
