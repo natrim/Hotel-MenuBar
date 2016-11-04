@@ -6,7 +6,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="PopupViewController" customModule="Statut" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="PopupViewController" customModule="Hotel_MenuBar" customModuleProvider="target">
             <connections>
                 <outlet property="mainWebView" destination="wZJ-HS-esW" id="FOh-zp-Iuh"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
@@ -19,7 +19,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fUl-5x-pQh">
-                    <rect key="frame" x="8" y="281" width="76" height="19"/>
+                    <rect key="frame" x="5" y="281" width="92" height="19"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="roundRect" title="Start Hotel" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="0MN-uP-zuY">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -29,19 +29,8 @@
                         <action selector="startHotel:" target="-2" id="3AU-gU-fCI"/>
                     </connections>
                 </button>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kga-4i-byJ">
-                    <rect key="frame" x="8" y="359" width="85" height="19"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="roundRect" title="Kill Menubar" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xFS-12-ueX">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="cellTitle"/>
-                        <connections>
-                            <action selector="killApp:" target="-2" id="Yd5-5F-6mU"/>
-                        </connections>
-                    </buttonCell>
-                </button>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8f2-VE-zBm">
-                    <rect key="frame" x="8" y="307" width="74" height="19"/>
+                    <rect key="frame" x="5" y="307" width="92" height="19"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="roundRect" title="Stop Hotel" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="OPV-bj-xXh">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -58,6 +47,17 @@
                         <nil key="identifier"/>
                     </webPreferences>
                 </webView>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kga-4i-byJ">
+                    <rect key="frame" x="5" y="359" width="92" height="19"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="roundRect" title="Exit MenuBar" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xFS-12-ueX">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="cellTitle"/>
+                        <connections>
+                            <action selector="killApp:" target="-2" id="Yd5-5F-6mU"/>
+                        </connections>
+                    </buttonCell>
+                </button>
             </subviews>
             <point key="canvasLocation" x="830" y="244"/>
         </customView>
