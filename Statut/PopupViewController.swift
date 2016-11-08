@@ -20,6 +20,7 @@ class PopupViewController: NSViewController, WebFrameLoadDelegate {
     }
     
     override func viewDidAppear() {
+        super.viewDidAppear()
         
     }
     
@@ -30,7 +31,6 @@ class PopupViewController: NSViewController, WebFrameLoadDelegate {
     }
     
     func webView(_ sender: WebView!, didStartProvisionalLoadFor frame: WebFrame!) {
-        print(sender.mainFrameURL)
         if (sender.mainFrameURL != Settings.url) {
             NSWorkspace.shared().open(URL(string: sender.mainFrameURL)!)
             sender.stopLoading(sender)
