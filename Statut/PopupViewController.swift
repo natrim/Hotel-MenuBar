@@ -49,16 +49,16 @@ class PopupViewController: NSViewController, WebFrameLoadDelegate {
     }
 
     @IBAction func stopHotel(_ sender: Any) {
-        let path = "/usr/local/bin/node"
-        let arguments = ["/usr/local/bin/hotel", "stop"]
+        let path = "/usr/bin/env"
+        let arguments = ["/usr/local/bin/node", "/usr/local/bin/hotel", "stop"]
         
         let task = Process.launchedProcess(launchPath: path, arguments: arguments)
         task.waitUntilExit()
     }
     
     @IBAction func startHotel(_ sender: Any) {
-        let path = "/usr/local/bin/node"
-        let arguments = ["/usr/local/bin/hotel", "start"]
+        let path = "/usr/bin/env"
+        let arguments = ["/usr/local/bin/node", "/usr/local/bin/hotel", "start"]
         
         let task = Process.launchedProcess(launchPath: path, arguments: arguments)
         task.waitUntilExit()
